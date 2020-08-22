@@ -26,6 +26,7 @@ class Inputs2 extends Component {
   };
   handleSubmit = event => {
     event.preventDefault();
+    let edate = new Date().toDateString();
     const {
       hours_done,
       hours_target,
@@ -33,6 +34,7 @@ class Inputs2 extends Component {
       modules_target
     } = this.state;
     let curriculum = {
+      entry_date: `${edate}`,
       name: "Prof Skills Curriculum",
       hours_done: hours_done,
       hours_target: hours_target,
@@ -43,6 +45,7 @@ class Inputs2 extends Component {
     axios
       .post("http://localhost:3001/curriculums", {
         curriculum: {
+          entry_date: `${edate}`,
           name: "Prof Skills Curriculum",
           hours_done: hours_done,
           hours_target: hours_target,
@@ -75,12 +78,12 @@ class Inputs2 extends Component {
   };
 
   render() {
-    const {
-      hours_done,
-      hours_target,
-      modules_done,
-      modules_target
-    } = this.state;
+    // const {
+    //   hours_done,
+    //   hours_target,
+    //   modules_done,
+    //   modules_target
+    // } = this.state;
     return (
       <div className="container text-left bg-light border border-primary border border-primary">
         <h1>Prof Skills Curriculum</h1>

@@ -38,7 +38,7 @@ class Progress extends Component {
           <h1 className="Curriculums-container">
             Track Progress - {this.props.user}
           </h1>
-          <h5 className="Curriculums-container"></h5>
+          {/* <h5 className="Curriculums-container"></h5> */}
           {myCurriculums.map(myCurriculum => {
             return (
               <div className="curriculum-list" key={myCurriculum.id}>

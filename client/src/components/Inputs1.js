@@ -7,6 +7,7 @@ class Inputs1 extends Component {
     super(props);
     this.state = {
       curriculum: {
+        entry_date: "",
         name: "",
         hours_done: "",
         hours_target: "",
@@ -52,6 +53,9 @@ class Inputs1 extends Component {
   };
   handleSubmit = event => {
     event.preventDefault();
+    let edate = new Date().toDateString();
+    // let edate = "22-Aug-2020";
+    console.log(edate);
     // console.log("h", this.props.location.state.detail.id);
     const {
       hours_done,
@@ -60,6 +64,8 @@ class Inputs1 extends Component {
       modules_target
     } = this.state;
     let curriculum = {
+      // entry_date: `${edate}`,
+      entry_date: `${edate}`,
       name: "Technical Curriculum",
       hours_done: hours_done,
       hours_target: hours_target,
@@ -72,6 +78,7 @@ class Inputs1 extends Component {
         "http://localhost:3001/curriculums",
         {
           curriculum: {
+            entry_date: `${edate}`,
             name: "Technical Curriculum",
             hours_done: hours_done,
             hours_target: hours_target,
@@ -108,14 +115,14 @@ class Inputs1 extends Component {
 
   render() {
     console.log("Inputs1-", this.props.id);
-    const {
-      // user_id,
-      // name,
-      hours_done,
-      hours_target,
-      modules_done,
-      modules_target
-    } = this.state;
+    // const {
+    //   // user_id,
+    //   // name,
+    //   hours_done,
+    //   hours_target,
+    //   modules_done,
+    //   modules_target
+    // } = this.state;
     // const { username, email, password } = this.props.user;
     return (
       <div className="container text-left bg-light border border-primary border border-primary">

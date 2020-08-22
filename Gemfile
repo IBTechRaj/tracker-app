@@ -5,6 +5,7 @@ ruby '2.6.0'
 gem 'bcrypt'
 gem 'rack-cors'
 gem 'rubocop', '~>0.81.0'
+gem 'hirb', '~>0.7.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'

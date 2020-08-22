@@ -55,7 +55,7 @@ class CurriculumsController < ApplicationController
   
       # Only allow a trusted parameter "white curriculum" through.
       def curriculum_params
-        params.require(:curriculum).permit(:user_id, :name, :hours_done, :hours_target, :modules_done, :modules_target)
+        params.require(:curriculum).permit(:user_id, :entry_date, :name, :hours_done, :hours_target, :modules_done, :modules_target)
       end
   end
 

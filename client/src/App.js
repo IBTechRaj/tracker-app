@@ -75,7 +75,7 @@ class App extends Component {
               )}
             />
             <Route
-              exact
+              // exact
               path="/Inputs1"
               render={props => <Inputs1 id={id} user={username} />}
             />

@@ -27,10 +27,19 @@ class TrackIt extends Component {
       .catch(error => console.log(error));
   }
   render() {
-    const myCurriculums = this.state.curriculums.filter(c => {
+    const allCurriculums = this.state.curriculums.filter(c => {
       return c.user_id === this.props.id;
     });
 
+    const name = this.state.curriculums.filter(c => {
+      return c.user_id === this.props.id;
+    });
+    const myCurriculums = name.sort(function (name1, name2) {
+      if (name1.name > name2.name) return -1;
+      if (name1.name < name2.name) return 1;
+    });
+
+    console.log(myCurriculums);
     return (
       <>
         {/* <h1>Logged In: {this.props.user}</h1> */}
@@ -38,15 +47,22 @@ class TrackIt extends Component {
           <h1 className="Curriculums-container">
             Track Progress - {this.props.user}
           </h1>
-          <h5 className="Curriculums-container"></h5>
+          {/* <h5 className="Curriculums-container"></h5> */}
           {myCurriculums.map(myCurriculum => {
+            // let d = myCurriculum.entry_date;
+
+            // let d1 = d.subString(1, 10);
+
             return (
               <div className="curriculum-list" key={myCurriculum.id}>
-                <h4>{myCurriculum.name}</h4>
-                <p> Hours Done : {myCurriculum.hours_done}</p>
-                <p> Hours Target : {myCurriculum.hours_target}</p>
-                <p> Modules Done : {myCurriculum.modules_done}</p>
-                <p> Modules Target : {myCurriculum.modules_target}</p>
+                <p>
+                  {myCurriculum.name} {myCurriculum.entry_date.substring(1, 10)}{" "}
+                  Hours : {myCurriculum.hours_done}{" "}
+                  {/* <p> Hours Target : {myCurriculum.hours_target}</p> */}
+                  {/* {myCurriculum.entry_date} */}
+                  Modules : {myCurriculum.modules_done}
+                </p>
+                {/* <p> Modules Target : {myCurriculum.modules_target}</p> */}
               </div>
             );
           })}
