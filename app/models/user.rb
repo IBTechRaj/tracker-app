@@ -1,5 +1,8 @@
 class User < ApplicationRecord
+  has_many :curriculums, dependent: :destroy
   has_secure_password
+
+  before_save { self.email = email.downcase } 
   validates :username, presence: true
   validates :username, uniqueness: true
   validates :username, length: { minimum: 4 }

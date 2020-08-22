@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  entry_date: 2020-08-21 20:06:38
+  name: MyString
+  hours_done: 1
+  hours_target: 1
+  modules_done: 1
+  modules_target: 1
+  user: one
+
+two:
+  entry_date: 2020-08-21 20:06:38
+  name: MyString
+  hours_done: 1
+  hours_target: 1
+  modules_done: 1
+  modules_target: 1
+  user: two
