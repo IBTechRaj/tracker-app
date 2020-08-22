@@ -17,7 +17,7 @@ function Footer() {
           <Link to="/TrackIt">Track It</Link>
         </div>
         <div className=" col text-dark bg-light border border-primary">
-          <Link to="/Progress">Progress</Link>
+          <Link to="/ProgressRing">Progress</Link>
         </div>
         <div className=" col text-dark bg-light border border-primary">
           <Link to="/">Home</Link>
