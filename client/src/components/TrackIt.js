@@ -40,6 +40,7 @@ class TrackIt extends Component {
       } else if (name1.name < name2.name) {
         return 1;
       }
+      return 0;
     });
 
     console.log(myCurriculums);

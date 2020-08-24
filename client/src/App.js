@@ -4,17 +4,19 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import AddData from "./components/AddData";
-import GetData from "./components/Progress";
+// import AddData from "./components/AddData";
+// import GetData from "./components/Progress";
 import Inputs1 from "./components/Inputs1";
 import Inputs2 from "./components/Inputs2";
 import Inputs3 from "./components/Inputs3";
 import TrackIt from "./components/TrackIt";
 import Progress from "./components/Progress";
-import SampleBar from "./components/SampleBar";
+// import SampleBar from "./components/SampleBar";
 import Login from "./components/registrations/Login";
 import Signup from "./components/registrations/Signup";
-import CurriculumsContainer from "./components/CurriculumsContainer";
+import "./style.css";
+
+// import CurriculumsContainer from "./components/CurriculumsContainer";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -61,7 +63,7 @@ class App extends Component {
     const { id, username } = this.state.user;
     console.log("in app render", id, username);
     return (
-      <div className="container text-center bg-light border border-primary">
+      <div className="container-fluid text-center  ">
         <BrowserRouter>
           <Header />
           <Switch>

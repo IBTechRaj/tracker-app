@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import "../styles/main-body.css";
 
 class Inputs1 extends Component {
   constructor(props) {
@@ -117,8 +118,12 @@ class Inputs1 extends Component {
     // } = this.state;
     // const { username, email, password } = this.props.user;
     return (
-      <div className="container text-left bg-light border border-primary ">
-        <h1>Technial Curriculum</h1>
+      <div className="row text-center body-bg">
+        <div className="col-md-12 body-header text-center">
+          {/* <div className="container-fluid text-center body-bg ">
+        <div className="container-fluid row-col-12 body-header text-center"> */}
+          <h1>Technial Curriculum</h1>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <label>
             {" "}
@@ -138,6 +143,8 @@ class Inputs1 extends Component {
             <input
               // placeholder="Hours Target"
               type="number"
+              inputmode="numeric"
+              pattern="[0-9]+([\.,][0-9]+)?"
               name="hours_target"
               value={this.state.curriculum.hours_target || 0}
               onChange={this.handleChange}
