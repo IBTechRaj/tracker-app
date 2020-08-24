@@ -49,7 +49,7 @@ class Inputs1 extends Component {
     let curriculum = {
       // entry_date: `${edate}`,
       entry_date: `${edate}`,
-      name: "Technical Curriculum",
+      name: "Tech Skills Curriculum",
       hours_done: hours_done,
       hours_target: hours_target,
       modules_done: modules_done,

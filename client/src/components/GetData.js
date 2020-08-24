@@ -43,7 +43,7 @@ class GetData extends React.Component {
         if (typeof data == "object") {
           data.forEach(hours => {
             if (this.props.id === hours.user_id) {
-              if (hours.name === "Technical Curriculum") {
+              if (hours.name === "Tech Skills Curriculum") {
                 th = parseInt(hours.hours_done);
                 tm = parseInt(hours.modules_done);
                 tht = parseInt(hours.hours_target);
