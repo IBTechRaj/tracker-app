@@ -21,7 +21,7 @@ class Inputs3 extends Component {
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value
+      [name]: parseInt(value)
     });
   };
   handleSubmit = event => {
@@ -93,7 +93,7 @@ class Inputs3 extends Component {
             Hours Done
             <input
               // placeholder="Hours Done"
-              type="text"
+              type="number"
               name="hours_done"
               value={this.state.curriculum.hours_done}
               onChange={this.handleChange}
@@ -104,7 +104,7 @@ class Inputs3 extends Component {
             Hours Target
             <input
               // placeholder="Hours Target"
-              type="text"
+              type="number"
               name="hours_target"
               value={this.state.curriculum.hours_target}
               onChange={this.handleChange}
@@ -115,7 +115,7 @@ class Inputs3 extends Component {
             Modules Done
             <input
               // placeholder="Modules Done"
-              type="text"
+              type="number"
               name="modules_done"
               value={this.state.curriculum.modules_done}
               onChange={this.handleChange}
@@ -126,7 +126,7 @@ class Inputs3 extends Component {
             Modules Target
             <input
               // placeholder="Modules Target"
-              type="text"
+              type="number"
               name="modules_target"
               value={this.state.curriculum.modules_target}
               onChange={this.handleChange}

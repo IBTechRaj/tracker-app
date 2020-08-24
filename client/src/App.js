@@ -5,11 +5,13 @@ import Home from "./components/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AddData from "./components/AddData";
+import GetData from "./components/GetData";
 import Inputs1 from "./components/Inputs1";
 import Inputs2 from "./components/Inputs2";
 import Inputs3 from "./components/Inputs3";
 import TrackIt from "./components/TrackIt";
 import ProgressRing from "./components/ProgressRing";
+import SampleBar from "./components/SampleBar";
 import Login from "./components/registrations/Login";
 import Signup from "./components/registrations/Signup";
 import CurriculumsContainer from "./components/CurriculumsContainer";
@@ -107,8 +109,13 @@ class App extends Component {
             <Route
               exact
               path="/ProgressRing"
+              render={props => <ProgressRing id={id} user={username} />}
+            />
+            <Route
+              exact
+              path="/SampleBar"
               render={props => (
-                <ProgressRing radius={60} stroke={4} progress={85} />
+                <SampleBar radius={60} stroke={4} progress={85} />
               )}
             />
             {/* <Route exact path="/Inputs2" render={props => <Inputs2 />} />
@@ -141,6 +148,11 @@ class App extends Component {
               exact
               path="/AddData"
               render={props => <AddData {...props} id={id} user={username} />}
+            />
+            <Route
+              exact
+              path="/GetData"
+              render={props => <GetData {...props} id={id} user={username} />}
             />
           </Switch>
           {/* <AddData id={id} user={username} /> */}

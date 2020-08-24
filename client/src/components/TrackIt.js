@@ -27,16 +27,19 @@ class TrackIt extends Component {
       .catch(error => console.log(error));
   }
   render() {
-    const allCurriculums = this.state.curriculums.filter(c => {
-      return c.user_id === this.props.id;
-    });
+    // const allCurriculums = this.state.curriculums.filter(c => {
+    //   return c.user_id === this.props.id;
+    // });
 
     const name = this.state.curriculums.filter(c => {
       return c.user_id === this.props.id;
     });
     const myCurriculums = name.sort(function (name1, name2) {
-      if (name1.name > name2.name) return -1;
-      if (name1.name < name2.name) return 1;
+      if (name1.name > name2.name) {
+        return -1;
+      } else if (name1.name < name2.name) {
+        return 1;
+      }
     });
 
     console.log(myCurriculums);
