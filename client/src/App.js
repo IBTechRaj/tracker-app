@@ -5,12 +5,12 @@ import Home from "./components/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AddData from "./components/AddData";
-import GetData from "./components/GetData";
+import GetData from "./components/Progress";
 import Inputs1 from "./components/Inputs1";
 import Inputs2 from "./components/Inputs2";
 import Inputs3 from "./components/Inputs3";
 import TrackIt from "./components/TrackIt";
-import ProgressRing from "./components/ProgressRing";
+import Progress from "./components/Progress";
 import SampleBar from "./components/SampleBar";
 import Login from "./components/registrations/Login";
 import Signup from "./components/registrations/Signup";
@@ -96,28 +96,28 @@ class App extends Component {
               path="/TrackIt"
               render={props => <TrackIt id={id} user={username} />}
             />
-            <Route
+            {/* <Route
               exact
               path="/CurriculumsContainer"
               render={props => <CurriculumsContainer id={id} user={username} />}
-            />
+            /> */}
             {/* <Route
               exact
               path="/Progress"
               render={props => <Progress id={id} user={username} />}
             /> */}
-            <Route
+            {/* <Route
               exact
               path="/ProgressRing"
               render={props => <ProgressRing id={id} user={username} />}
-            />
-            <Route
+            /> */}
+            {/* <Route
               exact
               path="/SampleBar"
               render={props => (
                 <SampleBar radius={60} stroke={4} progress={85} />
               )}
-            />
+            /> */}
             {/* <Route exact path="/Inputs2" render={props => <Inputs2 />} />
             <Route exact path="/Inputs3" render={props => <Inputs3 />} />
             <Route exact path="/TrackIt" render={props => <TrackIt />} />
@@ -144,15 +144,15 @@ class App extends Component {
                 />
               )}
             />
-            <Route
+            {/* <Route
               exact
               path="/AddData"
               render={props => <AddData {...props} id={id} user={username} />}
-            />
+            /> */}
             <Route
               exact
-              path="/GetData"
-              render={props => <GetData {...props} id={id} user={username} />}
+              path="/Progress"
+              render={props => <Progress {...props} id={id} user={username} />}
             />
           </Switch>
           {/* <AddData id={id} user={username} /> */}
