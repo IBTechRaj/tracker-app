@@ -85,7 +85,6 @@ class Inputs2 extends Component {
             {" "}
             Hours Done
             <input
-              // placeholder="Hours Done"
               type="number"
               name="hoursDone"
               value={this.state.curriculum.hoursDone}
@@ -96,7 +95,6 @@ class Inputs2 extends Component {
             {" "}
             Hours Target
             <input
-              // placeholder="Hours Target"
               type="number"
               name="hoursTarget"
               value={this.state.curriculum.hoursTarget}
@@ -107,7 +105,6 @@ class Inputs2 extends Component {
             {" "}
             Modules Done
             <input
-              // placeholder="Modules Done"
               type="number"
               name="modulesDone"
               value={this.state.curriculum.modulesDone}
@@ -118,7 +115,6 @@ class Inputs2 extends Component {
             {" "}
             Modules Target
             <input
-              // placeholder="Modules Target"
               type="number"
               name="modulesTarget"
               value={this.state.curriculum.modulesTarget}

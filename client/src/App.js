@@ -4,19 +4,15 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-// import AddData from "./components/AddData";
-// import GetData from "./components/Progress";
 import Inputs1 from "./components/Inputs1";
 import Inputs2 from "./components/Inputs2";
 import Inputs3 from "./components/Inputs3";
 import TrackIt from "./components/TrackIt";
 import Progress from "./components/Progress";
-// import SampleBar from "./components/SampleBar";
 import Login from "./components/registrations/Login";
 import Signup from "./components/registrations/Signup";
 import "./App.css";
 
-// import CurriculumsContainer from "./components/CurriculumsContainer";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -45,12 +41,10 @@ class App extends Component {
   };
 
   handleLogin = data => {
-    // console.log("App-", data.data.logged_in, data.data.user);
     this.setState({
-      isLoggedIn: true, // data.data.logged_in,
-      user: data.user // data.data.user
+      isLoggedIn: true,
+      user: data.user
     });
-    // console.log("st2", data.data.user);
   };
 
   handleLogout = () => {
@@ -81,7 +75,6 @@ class App extends Component {
               )}
             />
             <Route
-              // exact
               path="/Inputs1"
               render={props => <Inputs1 id={id} user={username} />}
             />
@@ -100,32 +93,6 @@ class App extends Component {
               path="/TrackIt"
               render={props => <TrackIt id={id} user={username} />}
             />
-            {/* <Route
-              exact
-              path="/CurriculumsContainer"
-              render={props => <CurriculumsContainer id={id} user={username} />}
-            /> */}
-            {/* <Route
-              exact
-              path="/Progress"
-              render={props => <Progress id={id} user={username} />}
-            /> */}
-            {/* <Route
-              exact
-              path="/ProgressRing"
-              render={props => <ProgressRing id={id} user={username} />}
-            /> */}
-            {/* <Route
-              exact
-              path="/SampleBar"
-              render={props => (
-                <SampleBar radius={60} stroke={4} progress={85} />
-              )}
-            /> */}
-            {/* <Route exact path="/Inputs2" render={props => <Inputs2 />} />
-            <Route exact path="/Inputs3" render={props => <Inputs3 />} />
-            <Route exact path="/TrackIt" render={props => <TrackIt />} />
-            <Route exact path="/Progress" render={props => <Progress />} /> */}
             <Route
               exact
               path="/login"
@@ -148,18 +115,12 @@ class App extends Component {
                 />
               )}
             />
-            {/* <Route
-              exact
-              path="/AddData"
-              render={props => <AddData {...props} id={id} user={username} />}
-            /> */}
             <Route
               exact
               path="/Progress"
               render={props => <Progress {...props} id={id} user={username} />}
             />
           </Switch>
-          {/* <AddData id={id} user={username} /> */}
           <Footer />
         </BrowserRouter>
       </div>

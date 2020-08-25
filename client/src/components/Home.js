@@ -17,7 +17,6 @@ const Home = props => {
   return (
     <div
       className="container-fluid h-100 d-inline-block !important  font-weight-bold bg-success item-height align-items-stretch px-0"
-      // style={{ align-items: "stretch" }}
     >
       <br></br>
       {props.loggedInStatus ? (

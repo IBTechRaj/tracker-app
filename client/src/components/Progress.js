@@ -95,7 +95,6 @@ class Progress extends React.Component {
   }
 
   render() {
-    // const { radius, stroke, progress } = this.props;
 
     const radius = 60;
     const stroke = 4;
@@ -107,23 +106,10 @@ class Progress extends React.Component {
       codeHoursProgress,
       codeModulesProgress,
     } = this.state;
-    // const progress = (th / tht) * 100;
-    // const progress = 80;
     this.normalizedRadius = radius - stroke * 2;
     this.circumference = this.normalizedRadius * 2 * Math.PI;
 
     let strokeDashoffset = this.circumference - (50 / 100) * this.circumference;
-    // strokeDashoffset = this.circumference - (70 / 100) * this.circumference;
-    // const strokeDashoffsetTM =
-    //   this.circumference - (tech_modules_progress / 100) * this.circumference;
-    // const strokeDashoffsetPH =
-    //   this.circumference - (prof_hours_progress / 100) * this.circumference;
-    // const strokeDashoffsetPM =
-    //   this.circumference - (prof_modules_progress / 100) * this.circumference;
-    // const strokeDashoffsetCH =
-    //   this.circumference - (code_hours_progress / 100) * this.circumference;
-    // const strokeDashoffsetCM =
-    //   this.circumference - (50 / 100) * this.circumference;
     console.log(
       'sdo',
       // strokeDashoffset,
@@ -136,27 +122,9 @@ class Progress extends React.Component {
       // code_hours_progress,
       // code_modules_progress
     );
-    // this.normalizedRadius = radius - stroke * 2;
-    // this.circumference = this.normalizedRadius * 2 * Math.PI;
     return (
       <>
         <div className="container bg-light border border-primary">
-          {/* <div className="row">
-            <svg height={radius * 2} width={radius * 2}>
-              <circle
-                stroke="blue"
-                fill="transparent"
-                strokeWidth={stroke}
-                strokeDasharray={this.circumference + " " + this.circumference}
-                style={{ strokeDashoffset }}
-                // strokeWidth={stroke}
-                r={this.normalizedRadius}
-                cx={radius}
-                cy={radius}
-              />
-            </svg>
-          </div> */}
-
           <div className="row  text-center border border-primary">
             Technical Curriculum
             <div style={{ display: 'none' }}>
@@ -172,7 +140,6 @@ class Progress extends React.Component {
                 strokeWidth={stroke}
                 strokeDasharray={`${this.circumference} ${this.circumference}`}
                 style={{ strokeDashoffset }}
-                // strokeWidth={stroke}
                 r={this.normalizedRadius}
                 cx={radius}
                 cy={radius}
@@ -191,7 +158,6 @@ class Progress extends React.Component {
                 strokeWidth={stroke}
                 strokeDasharray={`${this.circumference} ${this.circumference}`}
                 style={{ strokeDashoffset }}
-                // strokeWidth={stroke}
                 r={this.normalizedRadius}
                 cx={radius}
                 cy={radius}
@@ -217,7 +183,6 @@ class Progress extends React.Component {
                 strokeWidth={stroke}
                 strokeDasharray={`${this.circumference} ${this.circumference}`}
                 style={{ strokeDashoffset }}
-                // strokeWidth={stroke}
                 r={this.normalizedRadius}
                 cx={radius}
                 cy={radius}
@@ -236,7 +201,6 @@ class Progress extends React.Component {
                 strokeWidth={stroke}
                 strokeDasharray={`${this.circumference} ${this.circumference}`}
                 style={{ strokeDashoffset }}
-                // strokeWidth={stroke}
                 r={this.normalizedRadius}
                 cx={radius}
                 cy={radius}
@@ -258,7 +222,6 @@ class Progress extends React.Component {
                 strokeWidth={stroke}
                 strokeDasharray={`${this.circumference} ${this.circumference}`}
                 style={{ strokeDashoffset }}
-                // strokeWidth={stroke}
                 r={this.normalizedRadius}
                 cx={radius}
                 cy={radius}
@@ -277,7 +240,6 @@ class Progress extends React.Component {
                 strokeWidth={stroke}
                 strokeDasharray={`${this.circumference} ${this.circumference}`}
                 style={{ strokeDashoffset }}
-                // strokeWidth={stroke}
                 r={this.normalizedRadius}
                 cx={radius}
                 cy={radius}

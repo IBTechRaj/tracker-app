@@ -76,12 +76,6 @@ class Inputs3 extends Component {
   );
 
   render() {
-    // const {
-    //   hours_done,
-    //   hours_target,
-    //   modules_done,
-    //   modules_target
-    // } = this.state;
     return (
       <div className="container-fluid text-center bg-light h-100">
         <h1>Coding Challenges</h1>
@@ -91,7 +85,6 @@ class Inputs3 extends Component {
             {" "}
             Hours Done
             <input
-              // placeholder="Hours Done"
               type="number"
               name="hoursDone"
               value={this.state.curriculum.hoursDone}
@@ -102,7 +95,6 @@ class Inputs3 extends Component {
             {" "}
             Hours Target
             <input
-              // placeholder="Hours Target"
               type="number"
               name="hoursTarget"
               value={this.state.curriculum.hoursTarget}
@@ -113,7 +105,6 @@ class Inputs3 extends Component {
             {" "}
             Modules Done
             <input
-              // placeholder="Modules Done"
               type="number"
               name="modulesDone"
               value={this.state.curriculum.modulesDone}
@@ -124,7 +115,6 @@ class Inputs3 extends Component {
             {" "}
             Modules Target
             <input
-              // placeholder="Modules Target"
               type="number"
               name="modulesTarget"
               value={this.state.curriculum.modulesTarget}
