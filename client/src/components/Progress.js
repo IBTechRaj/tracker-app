@@ -16,12 +16,12 @@ class Progress extends React.Component {
       hours_target: '',
       modules_done: '',
       modules_target: '',
-      tech_hours_progress: '',
-      tech_modules_progress: '',
-      prof_hours_progress: '',
-      prof_modules_progress: '',
-      code_hours_progress: '',
-      code_modules_progress: '',
+      techHoursProgress: '',
+      techModulesProgress: '',
+      profHoursProgress: '',
+      profModulesProgress: '',
+      codeHoursProgress: '',
+      codeModulesProgress: '',
     };
   }
 
@@ -63,7 +63,6 @@ class Progress extends React.Component {
                 cht = parseInt(hours.hours_target, 10);
                 cmt = parseInt(hours.modules_target, 10);
               }
-              // console.log("dc", data.count);
             }
           });
           console.log(
@@ -84,13 +83,12 @@ class Progress extends React.Component {
           );
         }
         this.setState({
-          // curriculum
-          tech_hours_progress: (th / tht) * 100,
-          tech_modules_progress: (tm / tmt) * 100,
-          prof_hours_progress: (ph / pht) * 100,
-          prof_modules_progress: (pm / pmt) * 100,
-          code_hours_progress: (ch / cht) * 100,
-          code_modules_progress: (cm / cmt) * 100,
+          techHoursProgress: (th / tht) * 100,
+          techModulesProgress: (tm / tmt) * 100,
+          profHoursProgress: (ph / pht) * 100,
+          profModulesProgress: (pm / pmt) * 100,
+          codeHoursProgress: (ch / cht) * 100,
+          codeModulesProgress: (cm / cmt) * 100,
         });
       })
       .catch(err => {});
@@ -102,12 +100,12 @@ class Progress extends React.Component {
     const radius = 60;
     const stroke = 4;
     const {
-      tech_hours_progress,
-      tech_modules_progress,
-      prof_hours_progress,
-      prof_modules_progress,
-      code_hours_progress,
-      code_modules_progress,
+      techHoursProgress,
+      techModulesProgress,
+      profHoursProgress,
+      profModulesProgress,
+      codeHoursProgress,
+      codeModulesProgress,
     } = this.state;
     // const progress = (th / tht) * 100;
     // const progress = 80;
@@ -128,10 +126,10 @@ class Progress extends React.Component {
     //   this.circumference - (50 / 100) * this.circumference;
     console.log(
       'sdo',
-      strokeDashoffset,
+      // strokeDashoffset,
       // strokeDashoffsetTH,
-      this.circumference,
-      tech_hours_progress,
+      // this.circumference,
+      // tech_hours_progress,
       // tech_modules_progress,
       // prof_hours_progress,
       // prof_modules_progress,
@@ -164,7 +162,7 @@ class Progress extends React.Component {
             <div style={{ display: 'none' }}>
               {
                 (strokeDashoffset = this.circumference
-                  - (tech_hours_progress / 100) * this.circumference)
+                  - (techHoursProgress / 100) * this.circumference)
               }
             </div>
             <svg height={radius * 2} width={radius * 2}>
@@ -183,7 +181,7 @@ class Progress extends React.Component {
             <div style={{ display: 'none' }}>
               {
                 (strokeDashoffset = this.circumference
-                  - (tech_modules_progress / 100) * this.circumference)
+                  - (techModulesProgress / 100) * this.circumference)
               }
             </div>
             <svg height={radius * 2} width={radius * 2}>
@@ -209,7 +207,7 @@ class Progress extends React.Component {
             <div style={{ display: 'none' }}>
               {
                 (strokeDashoffset = this.circumference
-                  - (prof_hours_progress / 100) * this.circumference)
+                  - (profHoursProgress / 100) * this.circumference)
               }
             </div>
             <svg height={radius * 2} width={radius * 2}>
@@ -228,7 +226,7 @@ class Progress extends React.Component {
             <div style={{ display: 'none' }}>
               {
                 (strokeDashoffset = this.circumference
-                  - (prof_modules_progress / 100) * this.circumference)
+                  - (profModulesProgress / 100) * this.circumference)
               }
             </div>
             <svg height={radius * 2} width={radius * 2}>
@@ -250,7 +248,7 @@ class Progress extends React.Component {
             <div style={{ display: 'none' }}>
               {
                 (strokeDashoffset = this.circumference
-                  - (code_hours_progress / 100) * this.circumference)
+                  - (codeHoursProgress / 100) * this.circumference)
               }
             </div>
             <svg height={radius * 2} width={radius * 2}>
@@ -269,7 +267,7 @@ class Progress extends React.Component {
             <div style={{ display: 'none' }}>
               {
                 (strokeDashoffset = this.circumference
-                  - (code_modules_progress / 100) * this.circumference)
+                  - (codeModulesProgress / 100) * this.circumference)
               }
             </div>
             <svg height={radius * 2} width={radius * 2}>
@@ -295,5 +293,6 @@ class Progress extends React.Component {
 Progress.propTypes = {
   id: PropTypes.number,
   username: PropTypes.string,
+  data: PropTypes.object,
 };
 export default Progress;

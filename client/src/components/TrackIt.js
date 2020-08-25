@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import axios from "axios";
+import PropTypes from "prop-types";
 
 class TrackIt extends Component {
   constructor(props) {
@@ -10,21 +10,21 @@ class TrackIt extends Component {
       curriculums: [],
       id: this.props.data,
       username: this.props.data,
-      user_id: '',
-      name: '',
-      hours_done: '',
-      hours_target: '',
-      modules_done: '',
-      modules_target: '',
+      user_id: "",
+      name: "",
+      hours_done: "",
+      hours_target: "",
+      modules_done: "",
+      modules_target: ""
     };
   }
 
   componentDidMount() {
     axios
-      .get('http://localhost:3001/curriculums', { withCredentials: true })
+      .get("http://localhost:3001/curriculums", { withCredentials: true })
       .then(response => {
         this.setState({
-          curriculums: response.data,
+          curriculums: response.data
         });
       })
       .catch(error => console.log(error));
@@ -36,7 +36,7 @@ class TrackIt extends Component {
     // });
 
     const name = this.state.curriculums.filter(
-      c => c.user_id === this.props.id,
+      c => c.user_id === this.props.id
     );
     const myCurriculums = name.sort((name1, name2) => {
       if (name1.name > name2.name) {
@@ -52,7 +52,7 @@ class TrackIt extends Component {
     return (
       <>
         {/* <h1>Logged In: {this.props.user}</h1> */}
-        <div className="Curriculums-container bg-info border border-primary">
+        <div className="container-fluid text-center bg-light h-100">
           <h1 className="Curriculums-container">
             Track Progress - {this.props.user}
           </h1>
@@ -64,8 +64,8 @@ class TrackIt extends Component {
 
             <div className="curriculum-list" key={myCurriculum.id}>
               <p>
-                {myCurriculum.name} {myCurriculum.entry_date.substring(1, 10)}{' '}
-                Hours : {myCurriculum.hours_done}{' '}
+                {myCurriculum.name} {myCurriculum.entry_date.substring(1, 10)}{" "}
+                Hours : {myCurriculum.hours_done}{" "}
                 {/* <p> Hours Target : {myCurriculum.hours_target}</p> */}
                 {/* {myCurriculum.entry_date} */}
                 Modules : {myCurriculum.modules_done}
@@ -81,5 +81,7 @@ class TrackIt extends Component {
 TrackIt.propTypes = {
   id: PropTypes.number,
   username: PropTypes.string,
+  user: PropTypes.string,
+  data: PropTypes.object
 };
 export default TrackIt;

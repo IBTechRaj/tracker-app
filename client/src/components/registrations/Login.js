@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Login extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class Login extends Component {
     };
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     return this.props.loggedInStatus ? this.redirect() : null;
   }
 
@@ -59,11 +60,13 @@ class Login extends Component {
   };
 
   handleErrors = () => (
-      <div>
-        <ul>
-          {this.state.errors.map(error => <li key={error}>{error}</li>)}
-        </ul>
-      </div>
+    <div>
+      <ul>
+        {this.state.errors.map(error => (
+          <li key={error}>{error}</li>
+        ))}
+      </ul>
+    </div>
   );
 
   render() {
@@ -105,4 +108,11 @@ class Login extends Component {
     );
   }
 }
+
+Login.propTypes = {
+  handleLogin: PropTypes.func.isRequired,
+  history: PropTypes.string,
+  loggedInStatus: PropTypes.bool,
+};
+
 export default Login;

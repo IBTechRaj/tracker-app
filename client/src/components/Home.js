@@ -1,23 +1,23 @@
-import React from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import '../styles/header.css';
+import React from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import "../styles/home.css";
 
 const Home = props => {
   const handleClick = () => {
     axios
-      .delete('http://localhost:3001/logout', { withCredentials: true })
+      .delete("http://localhost:3001/logout", { withCredentials: true })
       .then(response => {
         props.handleLogout();
-        props.history.push('/');
+        props.history.push("/");
       })
       .catch(error => console.log(error));
   };
   return (
     <div
-      className="row  container bg-light text-center text-dark font-weight-bold  border border-primary"
-      style={{ height: '5em' }}
+      className="container-fluid h-100 d-inline-block !important  font-weight-bold bg-success item-height align-items-stretch px-0"
+      // style={{ align-items: "stretch" }}
     >
       <br></br>
       {props.loggedInStatus ? (
@@ -37,7 +37,7 @@ const Home = props => {
 
 Home.propTypes = {
   handleLogout: PropTypes.func.isRequired,
-  history: PropTypes.string.isRequired,
+  history: PropTypes.string.isRequired
 };
 
 export default Home;

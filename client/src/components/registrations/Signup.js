@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 class Signup extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class Signup extends Component {
       username: '',
       email: '',
       password: '',
-      password_confirmation: '',
+      passwordConfirmation: '',
       errors: '',
     };
   }
@@ -23,13 +24,13 @@ class Signup extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const {
-      username, email, password, password_confirmation,
+      username, email, password, passwordConfirmation,
     } = this.state;
     const user = {
       username,
       email,
       password,
-      password_confirmation,
+      passwordConfirmation,
     };
     axios
       .post('http://localhost:3001/users', { user }, { withCredentials: true })
@@ -51,16 +52,18 @@ class Signup extends Component {
   };
 
   handleErrors = () => (
-      <div>
-        <ul>
-          {this.state.errors.map(error => <li key={error}>{error}</li>)}
-        </ul>
-      </div>
+    <div>
+      <ul>
+        {this.state.errors.map(error => (
+          <li key={error}>{error}</li>
+        ))}
+      </ul>
+    </div>
   );
 
   render() {
     const {
-      username, email, password, password_confirmation,
+      username, email, password, passwordConfirmation,
     } = this.state;
     return (
       <div>
@@ -90,8 +93,8 @@ class Signup extends Component {
           <input
             placeholder="password confirmation"
             type="password"
-            name="password_confirmation"
-            value={password_confirmation}
+            name="passwordConfirmation"
+            value={passwordConfirmation}
             onChange={this.handleChange}
           />
 
@@ -104,4 +107,9 @@ class Signup extends Component {
     );
   }
 }
+
+Signup.propTypes = {
+  handleLogin: PropTypes.func.isRequired,
+  history: PropTypes.string,
+};
 export default Signup;

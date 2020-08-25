@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import axios from "axios";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 class Inputs2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
       curriculum: {
-        name: '',
-        hoursDone: '',
-        hoursTarget: '',
-        modulesDone: '',
-        modulesTarget: '',
-        user_id: '',
-      },
+        name: "",
+        hoursDone: "",
+        hoursTarget: "",
+        modulesDone: "",
+        modulesTarget: "",
+        user_id: ""
+      }
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,39 +23,34 @@ class Inputs2 extends Component {
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({
-      [name]: parseInt(value, 10),
+      [name]: parseInt(value, 10)
     });
   };
 
   handleSubmit = event => {
     event.preventDefault();
     const edate = new Date().toDateString();
-    const {
-      hoursDone,
-      hoursTarget,
-      modulesDone,
-      modulesTarget,
-    } = this.state;
+    const { hoursDone, hoursTarget, modulesDone, modulesTarget } = this.state;
     const curriculum = {
       entry_date: `${edate}`,
-      name: 'Prof Skills Curriculum',
+      name: "Prof Skills Curriculum",
       hoursDone,
       hoursTarget,
       modulesDone,
       modulesTarget,
-      user_id: this.props.id,
+      user_id: this.props.id
     };
     axios
-      .post('http://localhost:3001/curriculums', {
+      .post("http://localhost:3001/curriculums", {
         curriculum: {
           entry_date: `${edate}`,
-          name: 'Prof Skills Curriculum',
+          name: "Prof Skills Curriculum",
           hoursDone,
           hoursTarget,
           modulesDone,
           modulesTarget,
-          user_id: this.props.id,
-        },
+          user_id: this.props.id
+        }
       })
       .then(response => {
         console.log(response);
@@ -67,24 +62,27 @@ class Inputs2 extends Component {
   };
 
   redirect = () => {
-    this.props.history.push('/Inputs3');
+    this.props.history.push("/Inputs3");
   };
 
   handleErrors = () => (
-      <div>
-        <ul>
-          {this.state.errors.map(error => <li key={error}>{error}</li>)}
-        </ul>
-      </div>
+    <div>
+      <ul>
+        {this.state.errors.map(error => (
+          <li key={error}>{error}</li>
+        ))}
+      </ul>
+    </div>
   );
 
   render() {
     return (
-      <div className="container text-left bg-light border border-primary border border-primary">
+      <div className="container-fluid  bg-light h-100 ">
         <h1>Prof Skills Curriculum</h1>
+        <br></br>
         <form onSubmit={this.handleSubmit}>
           <label>
-            {' '}
+            {" "}
             Hours Done
             <input
               // placeholder="Hours Done"
@@ -95,7 +93,7 @@ class Inputs2 extends Component {
             />
           </label>
           <label>
-            {' '}
+            {" "}
             Hours Target
             <input
               // placeholder="Hours Target"
@@ -106,7 +104,7 @@ class Inputs2 extends Component {
             />
           </label>
           <label>
-            {' '}
+            {" "}
             Modules Done
             <input
               // placeholder="Modules Done"
@@ -117,7 +115,7 @@ class Inputs2 extends Component {
             />
           </label>
           <label>
-            {' '}
+            {" "}
             Modules Target
             <input
               // placeholder="Modules Target"
@@ -139,6 +137,6 @@ class Inputs2 extends Component {
 
 Inputs2.propTypes = {
   id: PropTypes.number,
-  username: PropTypes.string,
+  username: PropTypes.string
 };
 export default Inputs2;
