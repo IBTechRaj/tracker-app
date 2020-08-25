@@ -1,61 +1,67 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React, { Component } from 'react';
+import axios from 'axios';
+
 class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      email: "",
-      password: "",
-      password_confirmation: "",
-      errors: ""
+      username: '',
+      email: '',
+      password: '',
+      password_confirmation: '',
+      errors: '',
     };
   }
+
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value
+      [name]: value,
     });
   };
+
   handleSubmit = event => {
     event.preventDefault();
-    const { username, email, password, password_confirmation } = this.state;
-    let user = {
-      username: username,
-      email: email,
-      password: password,
-      password_confirmation: password_confirmation
+    const {
+      username, email, password, password_confirmation,
+    } = this.state;
+    const user = {
+      username,
+      email,
+      password,
+      password_confirmation,
     };
     axios
-      .post("http://localhost:3001/users", { user }, { withCredentials: true })
+      .post('http://localhost:3001/users', { user }, { withCredentials: true })
       .then(response => {
-        if (response.data.status === "created") {
+        if (response.data.status === 'created') {
           this.props.handleLogin(response.data);
           this.redirect();
         } else {
           this.setState({
-            errors: response.data.errors
+            errors: response.data.errors,
           });
         }
       })
-      .catch(error => console.log("api errors:", error));
+      .catch(error => console.log('api errors:', error));
   };
+
   redirect = () => {
-    this.props.history.push("/Inputs1");
+    this.props.history.push('/Inputs1');
   };
-  handleErrors = () => {
-    return (
+
+  handleErrors = () => (
       <div>
         <ul>
-          {this.state.errors.map(error => {
-            return <li key={error}>{error}</li>;
-          })}
+          {this.state.errors.map(error => <li key={error}>{error}</li>)}
         </ul>
       </div>
-    );
-  };
+  );
+
   render() {
-    const { username, email, password, password_confirmation } = this.state;
+    const {
+      username, email, password, password_confirmation,
+    } = this.state;
     return (
       <div>
         <h1>Sign Up</h1>

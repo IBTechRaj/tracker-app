@@ -1,68 +1,71 @@
-import React, { Component } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      email: "",
-      password: "",
-      errors: ""
+      username: '',
+      email: '',
+      password: '',
+      errors: '',
     };
   }
+
   componentWillMount() {
     return this.props.loggedInStatus ? this.redirect() : null;
   }
+
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value
+      [name]: value,
     });
   };
+
   handleSubmit = event => {
     event.preventDefault();
     const { username, email, password } = this.state;
 
-    let user = {
-      username: username,
-      email: email,
-      password: password
+    const user = {
+      username,
+      email,
+      password,
     };
 
     axios
-      .post("http://localhost:3001/login", { user }, { withCredentials: true })
+      .post('http://localhost:3001/login', { user }, { withCredentials: true })
       .then(response => {
-        console.log("res", response.data.logged_in);
+        console.log('res', response.data.logged_in);
         if (response.data.logged_in) {
           this.props.handleLogin(response.data);
-          console.log("Login-", response.data);
+          console.log('Login-', response.data);
           this.redirect(response.data);
         } else {
           this.setState({
-            errors: response.data.errors
+            errors: response.data.errors,
           });
         }
       })
-      .catch(error => console.log("api L errors:", error));
+      .catch(error => console.log('api L errors:', error));
   };
+
   redirect = data => {
     this.props.history.push({
-      pathname: "/Inputs1",
-      state: { detail: data }
+      pathname: '/Inputs1',
+      state: { detail: data },
     });
   };
-  handleErrors = () => {
-    return (
+
+  handleErrors = () => (
       <div>
         <ul>
-          {this.state.errors.map(error => {
-            return <li key={error}>{error}</li>;
-          })}
+          {this.state.errors.map(error => <li key={error}>{error}</li>)}
         </ul>
       </div>
-    );
-  };
+  );
+
   render() {
     const { username, email, password } = this.state;
     return (

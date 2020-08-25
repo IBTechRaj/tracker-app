@@ -1,58 +1,61 @@
-import React, { Component } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import axios from 'axios';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class Inputs2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
       curriculum: {
-        name: "",
-        hours_done: "",
-        hours_target: "",
-        modules_done: "",
-        modules_target: "",
-        user_id: ""
-      }
+        name: '',
+        hoursDone: '',
+        hoursTarget: '',
+        modulesDone: '',
+        modulesTarget: '',
+        user_id: '',
+      },
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({
-      [name]: parseInt(value)
+      [name]: parseInt(value, 10),
     });
   };
+
   handleSubmit = event => {
     event.preventDefault();
-    let edate = new Date().toDateString();
+    const edate = new Date().toDateString();
     const {
-      hours_done,
-      hours_target,
-      modules_done,
-      modules_target
+      hoursDone,
+      hoursTarget,
+      modulesDone,
+      modulesTarget,
     } = this.state;
-    let curriculum = {
+    const curriculum = {
       entry_date: `${edate}`,
-      name: "Prof Skills Curriculum",
-      hours_done: hours_done,
-      hours_target: hours_target,
-      modules_done: modules_done,
-      modules_target: modules_target,
-      user_id: this.props.id
+      name: 'Prof Skills Curriculum',
+      hoursDone,
+      hoursTarget,
+      modulesDone,
+      modulesTarget,
+      user_id: this.props.id,
     };
     axios
-      .post("http://localhost:3001/curriculums", {
+      .post('http://localhost:3001/curriculums', {
         curriculum: {
           entry_date: `${edate}`,
-          name: "Prof Skills Curriculum",
-          hours_done: hours_done,
-          hours_target: hours_target,
-          modules_done: modules_done,
-          modules_target: modules_target,
-          user_id: this.props.id
-        }
+          name: 'Prof Skills Curriculum',
+          hoursDone,
+          hoursTarget,
+          modulesDone,
+          modulesTarget,
+          user_id: this.props.id,
+        },
       })
       .then(response => {
         console.log(response);
@@ -62,73 +65,65 @@ class Inputs2 extends Component {
         console.log(error);
       });
   };
+
   redirect = () => {
-    this.props.history.push("/Inputs3");
-  };
-  handleErrors = () => {
-    return (
-      <div>
-        <ul>
-          {this.state.errors.map(error => {
-            return <li key={error}>{error}</li>;
-          })}
-        </ul>
-      </div>
-    );
+    this.props.history.push('/Inputs3');
   };
 
+  handleErrors = () => (
+      <div>
+        <ul>
+          {this.state.errors.map(error => <li key={error}>{error}</li>)}
+        </ul>
+      </div>
+  );
+
   render() {
-    // const {
-    //   hours_done,
-    //   hours_target,
-    //   modules_done,
-    //   modules_target
-    // } = this.state;
     return (
       <div className="container text-left bg-light border border-primary border border-primary">
         <h1>Prof Skills Curriculum</h1>
         <form onSubmit={this.handleSubmit}>
           <label>
-            {" "}
+            {' '}
             Hours Done
             <input
               // placeholder="Hours Done"
               type="number"
-              name="hours_done"
-              value={this.state.curriculum.hours_done}
+              name="hoursDone"
+              value={this.state.curriculum.hoursDone}
               onChange={this.handleChange}
             />
           </label>
           <label>
-            {" "}
+            {' '}
             Hours Target
             <input
               // placeholder="Hours Target"
               type="number"
-              name="hours_target"
-              value={this.state.curriculum.hours_target}
+              name="hoursTarget"
+              value={this.state.curriculum.hoursTarget}
               onChange={this.handleChange}
             />
           </label>
           <label>
-            {" "}
+            {' '}
             Modules Done
             <input
               // placeholder="Modules Done"
               type="number"
-              name="modules_done"
-              value={this.state.curriculum.modules_done}
+              name="modulesDone"
+              value={this.state.curriculum.modulesDone}
               onChange={this.handleChange}
             />
           </label>
           <label>
-            {" "}
+            {' '}
             Modules Target
             <input
               // placeholder="Modules Target"
               type="number"
-              name="modules_target"
-              value={this.state.curriculum.modules_target}
+              name="modulesTarget"
+              value={this.state.curriculum.modulesTarget}
               onChange={this.handleChange}
             />
           </label>
@@ -141,4 +136,9 @@ class Inputs2 extends Component {
     );
   }
 }
+
+Inputs2.propTypes = {
+  id: PropTypes.number,
+  username: PropTypes.string,
+};
 export default Inputs2;

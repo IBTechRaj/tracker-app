@@ -1,5 +1,6 @@
-import React from "react";
-import axios from "axios";
+import React from 'react';
+import axios from 'axios';
+import PropTypes from 'prop-types';
 
 class Progress extends React.Component {
   constructor(props) {
@@ -9,63 +10,64 @@ class Progress extends React.Component {
       curriculums: [],
       id: this.props.data,
       username: this.props.data,
-      user_id: "",
-      name: "",
-      hours_done: "",
-      hours_target: "",
-      modules_done: "",
-      modules_target: "",
-      tech_hours_progress: "",
-      tech_modules_progress: "",
-      prof_hours_progress: "",
-      prof_modules_progress: "",
-      code_hours_progress: "",
-      code_modules_progress: ""
+      user_id: '',
+      name: '',
+      hours_done: '',
+      hours_target: '',
+      modules_done: '',
+      modules_target: '',
+      tech_hours_progress: '',
+      tech_modules_progress: '',
+      prof_hours_progress: '',
+      prof_modules_progress: '',
+      code_hours_progress: '',
+      code_modules_progress: '',
     };
   }
+
   componentDidMount() {
     axios
-      .get("http://localhost:3001/curriculums", { withCredentials: true })
+      .get('http://localhost:3001/curriculums', { withCredentials: true })
       .then(({ data }) => {
-        var th = 0;
-        var tm = 0;
-        var tht = 0;
-        var tmt = 0;
-        var ph = 0;
-        var pm = 0;
-        var pht = 0;
-        var pmt = 0;
-        var ch = 0;
-        var cm = 0;
-        var cht = 0;
-        var cmt = 0;
+        let th = 0;
+        let tm = 0;
+        let tht = 0;
+        let tmt = 0;
+        let ph = 0;
+        let pm = 0;
+        let pht = 0;
+        let pmt = 0;
+        let ch = 0;
+        let cm = 0;
+        let cht = 0;
+        let cmt = 0;
 
-        if (typeof data == "object") {
+        if (typeof data === 'object') {
           data.forEach(hours => {
             if (this.props.id === hours.user_id) {
-              if (hours.name === "Tech Skills Curriculum") {
-                th = parseInt(hours.hours_done);
-                tm = parseInt(hours.modules_done);
-                tht = parseInt(hours.hours_target);
-                tmt = parseInt(hours.modules_target);
+              if (hours.name === 'Tech Skills Curriculum') {
+                th = parseInt(hours.hours_done, 10);
+                tm = parseInt(hours.modules_done, 10);
+                tht = parseInt(hours.hours_target, 10);
+                tmt = parseInt(hours.modules_target, 10);
               }
-              if (hours.name === "Prof Skills Curriculum") {
-                ph = parseInt(hours.hours_done);
-                pm = parseInt(hours.modules_done);
-                pht = parseInt(hours.hours_target);
-                pmt = parseInt(hours.modules_target);
+              if (hours.name === 'Prof Skills Curriculum') {
+                ph = parseInt(hours.hours_done, 10);
+                pm = parseInt(hours.modules_done, 10);
+                pht = parseInt(hours.hours_target, 10);
+                pmt = parseInt(hours.modules_target, 10);
               }
-              if (hours.name === "Coding Challenges") {
-                ch = parseInt(hours.hours_done);
-                cm = parseInt(hours.modules_done);
-                cht = parseInt(hours.hours_target);
-                cmt = parseInt(hours.modules_target);
+              if (hours.name === 'Coding Challenges') {
+                ch = parseInt(hours.hours_done, 10);
+                cm = parseInt(hours.modules_done, 10);
+                cht = parseInt(hours.hours_target, 10);
+                cmt = parseInt(hours.modules_target, 10);
               }
               // console.log("dc", data.count);
             }
           });
           console.log(
-            "d",
+            'd',
             this.props.id,
             th,
             tm,
@@ -78,7 +80,7 @@ class Progress extends React.Component {
             ch,
             cm,
             cht,
-            cmt
+            cmt,
           );
         }
         this.setState({
@@ -88,11 +90,12 @@ class Progress extends React.Component {
           prof_hours_progress: (ph / pht) * 100,
           prof_modules_progress: (pm / pmt) * 100,
           code_hours_progress: (ch / cht) * 100,
-          code_modules_progress: (cm / cmt) * 100
+          code_modules_progress: (cm / cmt) * 100,
         });
       })
       .catch(err => {});
   }
+
   render() {
     // const { radius, stroke, progress } = this.props;
 
@@ -104,7 +107,7 @@ class Progress extends React.Component {
       prof_hours_progress,
       prof_modules_progress,
       code_hours_progress,
-      code_modules_progress
+      code_modules_progress,
     } = this.state;
     // const progress = (th / tht) * 100;
     // const progress = 80;
@@ -124,11 +127,11 @@ class Progress extends React.Component {
     // const strokeDashoffsetCM =
     //   this.circumference - (50 / 100) * this.circumference;
     console.log(
-      "sdo",
+      'sdo',
       strokeDashoffset,
       // strokeDashoffsetTH,
       this.circumference,
-      tech_hours_progress
+      tech_hours_progress,
       // tech_modules_progress,
       // prof_hours_progress,
       // prof_modules_progress,
@@ -158,11 +161,10 @@ class Progress extends React.Component {
 
           <div className="row  text-center border border-primary">
             Technical Curriculum
-            <div style={{ display: "none" }}>
+            <div style={{ display: 'none' }}>
               {
-                (strokeDashoffset =
-                  this.circumference -
-                  (tech_hours_progress / 100) * this.circumference)
+                (strokeDashoffset = this.circumference
+                  - (tech_hours_progress / 100) * this.circumference)
               }
             </div>
             <svg height={radius * 2} width={radius * 2}>
@@ -170,7 +172,7 @@ class Progress extends React.Component {
                 stroke="blue"
                 fill="transparent"
                 strokeWidth={stroke}
-                strokeDasharray={this.circumference + " " + this.circumference}
+                strokeDasharray={`${this.circumference} ${this.circumference}`}
                 style={{ strokeDashoffset }}
                 // strokeWidth={stroke}
                 r={this.normalizedRadius}
@@ -178,11 +180,10 @@ class Progress extends React.Component {
                 cy={radius}
               />
             </svg>
-            <div style={{ display: "none" }}>
+            <div style={{ display: 'none' }}>
               {
-                (strokeDashoffset =
-                  this.circumference -
-                  (tech_modules_progress / 100) * this.circumference)
+                (strokeDashoffset = this.circumference
+                  - (tech_modules_progress / 100) * this.circumference)
               }
             </div>
             <svg height={radius * 2} width={radius * 2}>
@@ -190,7 +191,7 @@ class Progress extends React.Component {
                 stroke="blue"
                 fill="transparent"
                 strokeWidth={stroke}
-                strokeDasharray={this.circumference + " " + this.circumference}
+                strokeDasharray={`${this.circumference} ${this.circumference}`}
                 style={{ strokeDashoffset }}
                 // strokeWidth={stroke}
                 r={this.normalizedRadius}
@@ -205,11 +206,10 @@ class Progress extends React.Component {
           </div>
           <div className="row  text-center border border-primary">
             Professional Skills Curriculum
-            <div style={{ display: "none" }}>
+            <div style={{ display: 'none' }}>
               {
-                (strokeDashoffset =
-                  this.circumference -
-                  (prof_hours_progress / 100) * this.circumference)
+                (strokeDashoffset = this.circumference
+                  - (prof_hours_progress / 100) * this.circumference)
               }
             </div>
             <svg height={radius * 2} width={radius * 2}>
@@ -217,7 +217,7 @@ class Progress extends React.Component {
                 stroke="blue"
                 fill="transparent"
                 strokeWidth={stroke}
-                strokeDasharray={this.circumference + " " + this.circumference}
+                strokeDasharray={`${this.circumference} ${this.circumference}`}
                 style={{ strokeDashoffset }}
                 // strokeWidth={stroke}
                 r={this.normalizedRadius}
@@ -225,11 +225,10 @@ class Progress extends React.Component {
                 cy={radius}
               />
             </svg>
-            <div style={{ display: "none" }}>
+            <div style={{ display: 'none' }}>
               {
-                (strokeDashoffset =
-                  this.circumference -
-                  (prof_modules_progress / 100) * this.circumference)
+                (strokeDashoffset = this.circumference
+                  - (prof_modules_progress / 100) * this.circumference)
               }
             </div>
             <svg height={radius * 2} width={radius * 2}>
@@ -237,7 +236,7 @@ class Progress extends React.Component {
                 stroke="blue"
                 fill="transparent"
                 strokeWidth={stroke}
-                strokeDasharray={this.circumference + " " + this.circumference}
+                strokeDasharray={`${this.circumference} ${this.circumference}`}
                 style={{ strokeDashoffset }}
                 // strokeWidth={stroke}
                 r={this.normalizedRadius}
@@ -248,11 +247,10 @@ class Progress extends React.Component {
           </div>
           <div className="row  text-center border border-primary">
             Coding Challenges
-            <div style={{ display: "none" }}>
+            <div style={{ display: 'none' }}>
               {
-                (strokeDashoffset =
-                  this.circumference -
-                  (code_hours_progress / 100) * this.circumference)
+                (strokeDashoffset = this.circumference
+                  - (code_hours_progress / 100) * this.circumference)
               }
             </div>
             <svg height={radius * 2} width={radius * 2}>
@@ -260,7 +258,7 @@ class Progress extends React.Component {
                 stroke="blue"
                 fill="transparent"
                 strokeWidth={stroke}
-                strokeDasharray={this.circumference + " " + this.circumference}
+                strokeDasharray={`${this.circumference} ${this.circumference}`}
                 style={{ strokeDashoffset }}
                 // strokeWidth={stroke}
                 r={this.normalizedRadius}
@@ -268,11 +266,10 @@ class Progress extends React.Component {
                 cy={radius}
               />
             </svg>
-            <div style={{ display: "none" }}>
+            <div style={{ display: 'none' }}>
               {
-                (strokeDashoffset =
-                  this.circumference -
-                  (code_modules_progress / 100) * this.circumference)
+                (strokeDashoffset = this.circumference
+                  - (code_modules_progress / 100) * this.circumference)
               }
             </div>
             <svg height={radius * 2} width={radius * 2}>
@@ -280,7 +277,7 @@ class Progress extends React.Component {
                 stroke="blue"
                 fill="transparent"
                 strokeWidth={stroke}
-                strokeDasharray={this.circumference + " " + this.circumference}
+                strokeDasharray={`${this.circumference} ${this.circumference}`}
                 style={{ strokeDashoffset }}
                 // strokeWidth={stroke}
                 r={this.normalizedRadius}
@@ -295,4 +292,8 @@ class Progress extends React.Component {
   }
 }
 
+Progress.propTypes = {
+  id: PropTypes.number,
+  username: PropTypes.string,
+};
 export default Progress;

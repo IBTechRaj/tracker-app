@@ -1,20 +1,20 @@
-import React, { Component } from "react";
-import axios from "axios";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Home from "./components/Home";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import React, { Component } from 'react';
+import axios from 'axios';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './components/Home';
+import Header from './components/Header';
+import Footer from './components/Footer';
 // import AddData from "./components/AddData";
 // import GetData from "./components/Progress";
-import Inputs1 from "./components/Inputs1";
-import Inputs2 from "./components/Inputs2";
-import Inputs3 from "./components/Inputs3";
-import TrackIt from "./components/TrackIt";
-import Progress from "./components/Progress";
+import Inputs1 from './components/Inputs1';
+import Inputs2 from './components/Inputs2';
+import Inputs3 from './components/Inputs3';
+import TrackIt from './components/TrackIt';
+import Progress from './components/Progress';
 // import SampleBar from "./components/SampleBar";
-import Login from "./components/registrations/Login";
-import Signup from "./components/registrations/Signup";
-import "./style.css";
+import Login from './components/registrations/Login';
+import Signup from './components/registrations/Signup';
+import './style.css';
 
 // import CurriculumsContainer from "./components/CurriculumsContainer";
 class App extends Component {
@@ -22,31 +22,33 @@ class App extends Component {
     super(props);
     this.state = {
       isLoggedIn: false,
-      user: {}
+      user: {},
     };
   }
 
   componentDidMount() {
     this.loginStatus();
   }
+
   loginStatus = () => {
     axios
-      .get("http://localhost:3001/logged_in", { withCredentials: true })
+      .get('http://localhost:3001/logged_in', { withCredentials: true })
       .then(response => {
-        console.log("st1", response.data);
+        console.log('st1', response.data);
         if (response.data.logged_in) {
           this.handleLogin(response.data);
         } else {
           this.handleLogout();
         }
       })
-      .catch(error => console.log("api A errors:", error));
+      .catch(error => console.log('api A errors:', error));
   };
+
   handleLogin = data => {
     // console.log("App-", data.data.logged_in, data.data.user);
     this.setState({
-      isLoggedIn: true, //data.data.logged_in,
-      user: data.user //data.data.user
+      isLoggedIn: true, // data.data.logged_in,
+      user: data.user, // data.data.user
     });
     // console.log("st2", data.data.user);
   };
@@ -54,14 +56,14 @@ class App extends Component {
   handleLogout = () => {
     this.setState({
       isLoggedIn: false,
-      user: {}
+      user: {},
     });
   };
 
   render() {
-    console.log("st3", this.state.user);
+    console.log('st3', this.state.user);
     const { id, username } = this.state.user;
-    console.log("in app render", id, username);
+    console.log('in app render', id, username);
     return (
       <div className="container-fluid text-center  ">
         <BrowserRouter>

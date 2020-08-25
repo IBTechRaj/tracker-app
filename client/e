@@ -1,0 +1,100 @@
+
+/mnt/e/MVProgram/FinalCapstone/finalProject/client/src/App.js
+   37:9   warning  Unexpected console statement       no-console
+   44:23  warning  Unexpected console statement       no-console
+   64:5   warning  Unexpected console statement       no-console
+   66:5   warning  Unexpected console statement       no-console
+   86:23  error    'props' is defined but never used  no-unused-vars
+   91:23  error    'props' is defined but never used  no-unused-vars
+   96:23  error    'props' is defined but never used  no-unused-vars
+  101:23  error    'props' is defined but never used  no-unused-vars
+
+/mnt/e/MVProgram/FinalCapstone/finalProject/client/src/components/Home.js
+   4:1   error    'prop-types' should be listed in the project's dependencies. Run 'npm i -S prop-types' to add it  import/no-extraneous-dependencies
+  11:13  error    'response' is defined but never used                                                              no-unused-vars
+  15:23  warning  Unexpected console statement                                                                      no-console
+  23:14  error    'loggedInStatus' is missing in props validation                                                   react/prop-types
+
+/mnt/e/MVProgram/FinalCapstone/finalProject/client/src/components/Inputs1.js
+   4:1  error    'prop-types' should be listed in the project's dependencies. Run 'npm i -S prop-types' to add it  import/no-extraneous-dependencies
+  36:5  warning  Unexpected console statement                                                                      no-console
+  41:7  error    Identifier 'modules_done' is not in camel case                                                    camelcase
+  42:7  error    Identifier 'modules_target' is not in camel case                                                  camelcase
+  53:5  warning  Unexpected console statement                                                                      no-console
+  62:9  warning  Unexpected console statement                                                                      no-console
+  66:9  warning  Unexpected console statement                                                                      no-console
+  85:5  warning  Unexpected console statement                                                                      no-console
+
+/mnt/e/MVProgram/FinalCapstone/finalProject/client/src/components/Inputs2.js
+   3:1   error    'prop-types' should be listed in the project's dependencies. Run 'npm i -S prop-types' to add it  import/no-extraneous-dependencies
+  61:9   warning  Unexpected console statement                                                                      no-console
+  65:9   warning  Unexpected console statement                                                                      no-console
+  70:16  error    'history' is missing in props validation                                                          react/prop-types
+  70:24  error    'history.push' is missing in props validation                                                     react/prop-types
+
+/mnt/e/MVProgram/FinalCapstone/finalProject/client/src/components/Inputs3.js
+   3:1   error    'prop-types' should be listed in the project's dependencies. Run 'npm i -S prop-types' to add it  import/no-extraneous-dependencies
+  58:9   warning  Unexpected console statement                                                                      no-console
+  62:9   warning  Unexpected console statement                                                                      no-console
+  67:16  error    'history' is missing in props validation                                                          react/prop-types
+  67:24  error    'history.push' is missing in props validation                                                     react/prop-types
+
+/mnt/e/MVProgram/FinalCapstone/finalProject/client/src/components/Inputs4.js
+  17:16  error  'history' is missing in props validation       react/prop-types
+  17:24  error  'history.push' is missing in props validation  react/prop-types
+
+/mnt/e/MVProgram/FinalCapstone/finalProject/client/src/components/Progress.js
+    3:1   error    'prop-types' should be listed in the project's dependencies. Run 'npm i -S prop-types' to add it  import/no-extraneous-dependencies
+   11:22  error    'data' is missing in props validation                                                             react/prop-types
+   12:28  error    'data' is missing in props validation                                                             react/prop-types
+   69:11  warning  Unexpected console statement                                                                      no-console
+   96:14  error    'err' is defined but never used                                                                   no-unused-vars
+  105:7   error    Identifier 'tech_hours_progress' is not in camel case                                             camelcase
+  106:7   error    Identifier 'tech_modules_progress' is not in camel case                                           camelcase
+  107:7   error    Identifier 'prof_hours_progress' is not in camel case                                             camelcase
+  108:7   error    Identifier 'prof_modules_progress' is not in camel case                                           camelcase
+  109:7   error    Identifier 'code_hours_progress' is not in camel case                                             camelcase
+  110:7   error    Identifier 'code_modules_progress' is not in camel case                                           camelcase
+  129:5   warning  Unexpected console statement                                                                      no-console
+  143:5   error    Return statement should not contain assignment                                                    no-return-assign
+  143:5   error    Return statement should not contain assignment                                                    no-return-assign
+  143:5   error    Return statement should not contain assignment                                                    no-return-assign
+  143:5   error    Return statement should not contain assignment                                                    no-return-assign
+  143:5   error    Return statement should not contain assignment                                                    no-return-assign
+  143:5   error    Return statement should not contain assignment                                                    no-return-assign
+  167:22  error    Identifier 'tech_hours_progress' is not in camel case                                             camelcase
+  186:22  error    Identifier 'tech_modules_progress' is not in camel case                                           camelcase
+  212:22  error    Identifier 'prof_hours_progress' is not in camel case                                             camelcase
+  231:22  error    Identifier 'prof_modules_progress' is not in camel case                                           camelcase
+  253:22  error    Identifier 'code_hours_progress' is not in camel case                                             camelcase
+  272:22  error    Identifier 'code_modules_progress' is not in camel case                                           camelcase
+
+/mnt/e/MVProgram/FinalCapstone/finalProject/client/src/components/TrackIt.js
+   3:1   error    'prop-types' should be listed in the project's dependencies. Run 'npm i -S prop-types' to add it  import/no-extraneous-dependencies
+  11:22  error    'data' is missing in props validation                                                             react/prop-types
+  12:28  error    'data' is missing in props validation                                                             react/prop-types
+  30:23  warning  Unexpected console statement                                                                      no-console
+  51:5   warning  Unexpected console statement                                                                      no-console
+  57:42  error    'user' is missing in props validation                                                             react/prop-types
+
+/mnt/e/MVProgram/FinalCapstone/finalProject/client/src/components/registrations/Login.js
+  16:3   error    componentWillMount is deprecated since React 16.9.0, use UNSAFE_componentWillMount instead, see https://reactjs.org/docs/react-component.html#unsafe_componentwillmount. Use https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles to automatically update your components  react/no-deprecated
+  17:23  error    'loggedInStatus' is missing in props validation                                                                                                                                                                                                                                         react/prop-types
+  40:9   warning  Unexpected console statement                                                                                                                                                                                                                                                            no-console
+  42:22  error    'handleLogin' is missing in props validation                                                                                                                                                                                                                                            react/prop-types
+  43:11  warning  Unexpected console statement                                                                                                                                                                                                                                                            no-console
+  51:23  warning  Unexpected console statement                                                                                                                                                                                                                                                            no-console
+  55:16  error    'history' is missing in props validation                                                                                                                                                                                                                                                react/prop-types
+  55:24  error    'history.push' is missing in props validation                                                                                                                                                                                                                                           react/prop-types
+
+/mnt/e/MVProgram/FinalCapstone/finalProject/client/src/components/registrations/Signup.js
+  26:34  error    Identifier 'password_confirmation' is not in camel case  camelcase
+  38:22  error    'handleLogin' is missing in props validation             react/prop-types
+  46:23  warning  Unexpected console statement                             no-console
+  50:16  error    'history' is missing in props validation                 react/prop-types
+  50:24  error    'history.push' is missing in props validation            react/prop-types
+  63:34  error    Identifier 'password_confirmation' is not in camel case  camelcase
+  94:20  error    Identifier 'password_confirmation' is not in camel case  camelcase
+
+✖ 77 problems (55 errors, 22 warnings)
+
