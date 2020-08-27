@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import axios from "axios";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import axios from 'axios';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class Inputs3 extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hoursDone: "",
-      hoursTarget: "",
-      modulesDone: "",
-      modulesTarget: ""
+      hoursDone: '',
+      hoursTarget: '',
+      modulesDone: '',
+      modulesTarget: '',
     };
   }
 
@@ -21,14 +21,16 @@ class Inputs3 extends Component {
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value
+      [name]: value,
     });
   };
 
   handleSubmit = event => {
     event.preventDefault();
     const edate = new Date().toDateString();
-    const { hoursDone, hoursTarget, modulesDone, modulesTarget } = this.state;
+    const {
+      hoursDone, hoursTarget, modulesDone, modulesTarget,
+    } = this.state;
 
     // const user = {
     //   hoursDone,
@@ -38,29 +40,29 @@ class Inputs3 extends Component {
     // };
     const curriculum = {
       entry_date: `${edate}`,
-      name: "Coding Challenges",
+      name: 'Coding Challenges',
       hours_done: hoursDone,
       hours_target: hoursTarget,
       modules_done: modulesDone,
       modules_target: modulesTarget,
-      user_id: this.props.id
+      user_id: this.props.id,
     };
-    console.log("o", curriculum);
+    // console.log('o', curriculum);
     axios
-      .post("http://localhost:3001/curriculums", {
-        curriculum
-      })
-      .then(response => {
-        console.log(response);
-        this.setState({ curriculum });
-      })
-      .catch(error => {
-        console.log(error);
+      .post('http://localhost:3001/curriculums', {
+        curriculum,
       });
+    // .then(response => {
+    //   // console.log(response);
+    //   this.setState({ curriculum });
+    // });
+    // .catch(error => {
+    //   // console.log(error);
+    // });
   };
 
   redirect = () => {
-    this.props.history.push("/Inputs2");
+    this.props.history.push('/Inputs2');
   };
 
   handleErrors = () => (
@@ -85,7 +87,7 @@ class Inputs3 extends Component {
 
         <form onSubmit={this.handleSubmit}>
           <label className="justify-left w-100 px-5">
-            {" "}
+            {' '}
             Hours Done
             <input
               className="w-100"
@@ -96,7 +98,7 @@ class Inputs3 extends Component {
             />
           </label>
           <label className="justify-left w-100 px-5">
-            {" "}
+            {' '}
             Hours Target
             <input
               className="w-100"
@@ -109,7 +111,7 @@ class Inputs3 extends Component {
             />
           </label>
           <label className="justify-left w-100 px-5">
-            {" "}
+            {' '}
             Modules Done
             <input
               className="w-100"
@@ -120,7 +122,7 @@ class Inputs3 extends Component {
             />
           </label>
           <label className="justify-left w-100 px-5">
-            {" "}
+            {' '}
             Modules Target
             <input
               className="w-100"
@@ -131,8 +133,7 @@ class Inputs3 extends Component {
             />
           </label>
           <label className="justify-left w-100 px-5">
-            {" "}
-            Modules Target
+            {' '}
             <input
               className="w-100 btn btn-primary"
               type="submit"
@@ -155,13 +156,13 @@ class Inputs3 extends Component {
           <div
             className="col-sm py-3   text-muted item-height"
             style={{
-              backgroundColor: "#97e494",
-              height: "5em",
-              marginLeft: "8em",
-              marginBottom: "2em"
+              backgroundColor: '#97e494',
+              height: '5em',
+              marginLeft: '8em',
+              marginBottom: '2em',
             }}
           >
-            <Link to="/Inputs2" style={{ color: "white" }}>
+            <Link to="/Inputs2" style={{ color: 'white' }}>
               Prev
             </Link>
             {/* </button> */}
@@ -169,13 +170,13 @@ class Inputs3 extends Component {
           <div
             className="col-sm py-3   text-white item-height"
             style={{
-              backgroundColor: "white",
-              height: "5em",
-              marginRight: "8em",
-              marginBottom: "2em"
+              backgroundColor: 'white',
+              height: '5em',
+              marginRight: '8em',
+              marginBottom: '2em',
             }}
           >
-            <Link to="/Inputs2" style={{ color: "white" }}>
+            <Link to="/Inputs2" style={{ color: 'white' }}>
               Next
             </Link>
             {/* </button> */}
@@ -196,6 +197,8 @@ class Inputs3 extends Component {
 
 Inputs3.propTypes = {
   id: PropTypes.number,
-  username: PropTypes.string
+  username: PropTypes.string,
+  history: PropTypes.string,
+  push: PropTypes.func,
 };
 export default Inputs3;

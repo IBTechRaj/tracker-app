@@ -1,53 +1,55 @@
-import React, { Component } from "react";
-import axios from "axios";
-import PropTypes from "prop-types";
-import "../../styles/style.css";
+import React, { Component } from 'react';
+import axios from 'axios';
+import PropTypes from 'prop-types';
+import '../../styles/style.css';
 
 class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      email: "",
-      password: "",
-      passwordConfirmation: "",
-      errors: ""
+      username: '',
+      email: '',
+      password: '',
+      passwordConfirmation: '',
+      errors: '',
     };
   }
 
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value
+      [name]: value,
     });
   };
 
   handleSubmit = event => {
     event.preventDefault();
-    const { username, email, password, passwordConfirmation } = this.state;
+    const {
+      username, email, password, passwordConfirmation,
+    } = this.state;
     const user = {
       username,
       email,
       password,
-      passwordConfirmation
+      passwordConfirmation,
     };
     axios
-      .post("http://localhost:3001/users", { user }, { withCredentials: true })
+      .post('http://localhost:3001/users', { user }, { withCredentials: true })
       .then(response => {
-        if (response.data.status === "created") {
+        if (response.data.status === 'created') {
           this.props.handleLogin(response.data);
           this.redirect();
         } else {
           this.setState({
-            errors: response.data.errors
+            errors: response.data.errors,
           });
         }
-      })
-      .catch(error => console.log("api errors:", error));
+      });
+    // .catch(error => console.log('api errors:', error));
   };
 
   redirect = () => {
-    this.props.history.push("/Inputs1");
+    this.props.history.push('/Inputs1');
   };
 
   handleErrors = () => (
@@ -61,7 +63,9 @@ class Signup extends Component {
   );
 
   render() {
-    const { username, email, password, passwordConfirmation } = this.state;
+    const {
+      username, email, password, passwordConfirmation,
+    } = this.state;
     return (
       <div className="container-fluid text-dark bg-light h-100">
         <div className="w-100 ">
@@ -108,7 +112,7 @@ class Signup extends Component {
           </label>
 
           <label className="justify-left w-100 px-5">
-            {" "}
+            {' '}
             <input className="w-100 btn btn-primary" type="submit" />
           </label>
         </form>
@@ -120,6 +124,6 @@ class Signup extends Component {
 
 Signup.propTypes = {
   handleLogin: PropTypes.func.isRequired,
-  history: PropTypes.string
+  history: PropTypes.string,
 };
 export default Signup;

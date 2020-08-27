@@ -1,27 +1,27 @@
-import React, { Component } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      email: "",
-      password: "",
-      errors: ""
+      username: '',
+      email: '',
+      password: '',
+      errors: '',
     };
   }
 
-  UNSAFE_componentWillMount() {
+  unsafeComponentWillMount() {
     return this.props.loggedInStatus ? this.redirect() : null;
   }
 
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -32,11 +32,11 @@ class Login extends Component {
     const user = {
       username,
       email,
-      password
+      password,
     };
-    console.log(user);
+    // console.log(user);
     axios
-      .post("http://localhost:3001/login", { user }, { withCredentials: true })
+      .post('http://localhost:3001/login', { user }, { withCredentials: true })
       .then(response => {
         // console.log("res", response.data.logged_in);
         if (response.data.logged_in) {
@@ -45,17 +45,17 @@ class Login extends Component {
           this.redirect(response.data);
         } else {
           this.setState({
-            errors: response.data.errors
+            errors: response.data.errors,
           });
         }
-      })
-      .catch(error => console.log("api L errors:", error));
+      });
+    // .catch(error => console.log('api L errors:', error));
   };
 
   redirect = data => {
     this.props.history.push({
-      pathname: "/Inputs1",
-      state: { detail: data }
+      pathname: '/Inputs1',
+      state: { detail: data },
     });
   };
 
@@ -104,7 +104,7 @@ class Login extends Component {
             />
           </label>
           <label className="justify-left w-100 px-5">
-            {" "}
+            {' '}
             <input className="w-100 btn btn-primary" type="submit" />
           </label>
 
@@ -119,14 +119,14 @@ class Login extends Component {
   }
 }
 
-// Login.propTypes = {
-//   handleLogin: PropTypes.func.isRequired,
-//   history: PropTypes.Object,
-//   object,
-//   loggedInStatus: PropTypes.bool
-// };
-
-Login.defaultProps = {
-  history: PropTypes.Object
+Login.propTypes = {
+  handleLogin: PropTypes.func.isRequired,
+  history: PropTypes.object,
+  push: PropTypes.func,
+  loggedInStatus: PropTypes.bool,
 };
+
+// Login.defaultProps = {
+//   history: PropTypes.Object,
+// };
 export default Login;

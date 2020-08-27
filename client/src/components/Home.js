@@ -1,29 +1,28 @@
-import React from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import "../styles/home.css";
+/* eslint no-console: "error" */
+
+import React from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import '../styles/home.css';
 
 const Home = props => {
   const handleClick = () => {
     axios
-      .delete("http://localhost:3001/logout", { withCredentials: true })
-      .then(response => {
+      .delete('http://localhost:3001/logout', { withCredentials: true })
+      .then(() => {
         props.handleLogout();
-        props.history.push("/");
-      })
-      .catch(error => console.log(error));
+        props.history.push('/');
+      });
+    // .catch(error => console.log(error));
   };
   return (
-    <div
-      // className="container-fluid h-100 d-inline-block !important  font-weight-bold bg-success item-height align-items-stretch px-0"
-      className="container-fluid  header-bg text-white font-weight-bold h-100 mb-0"
-    >
+    <div className="container-fluid  header-bg text-white font-weight-bold h-100 mb-0 home-height">
       <br></br>
       <div className=" text-white">
         {props.loggedInStatus ? (
           <div className="p-3 mb-5 mb-3 bg-dark text-white">
-            <Link to="/logout" style={{ color: "white" }} onClick={handleClick}>
+            <Link to="/logout" style={{ color: 'white' }} onClick={handleClick}>
               Log Out
             </Link>
             {/* </button> */}
@@ -36,7 +35,7 @@ const Home = props => {
           // </button>
           <div>
             <div className="p-3 mb-2 mb-3 bg-dark text-white">
-              <Link to="/login" style={{ color: "white" }}>
+              <Link to="/login" style={{ color: 'white' }}>
                 Log In
               </Link>
               {/* </button> */}
@@ -47,7 +46,7 @@ const Home = props => {
                 type="button"
                 className="btn btn-lg btn-dark btn-lg  px-5 py-2 mt-3 text-white"
               > */}
-              <Link to="/signup" style={{ color: "white" }}>
+              <Link to="/signup" style={{ color: 'white' }}>
                 Sign Up
               </Link>
               {/* <Link to="/signup">Sign Up</Link> */}
@@ -60,12 +59,14 @@ const Home = props => {
   );
 };
 
-// Home.propTypes = {
-//   handleLogout: PropTypes.func.isRequired,
-//   history: PropTypes.string.isRequired
-// };
-
-Home.defaultProps = {
-  history: PropTypes.Object
+Home.propTypes = {
+  handleLogout: PropTypes.func.isRequired,
+  history: PropTypes.string.isRequired,
+  push: PropTypes.func,
+  loggedInStatus: PropTypes.bool,
 };
+
+// Home.defaultProps = {
+//   history: PropTypes.Object,
+// };
 export default Home;
