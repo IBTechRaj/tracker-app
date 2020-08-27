@@ -11,6 +11,7 @@ import TrackIt from "./components/TrackIt";
 import Progress from "./components/Progress";
 import Login from "./components/registrations/Login";
 import Signup from "./components/registrations/Signup";
+import PropTypes from "prop-types";
 import "./App.css";
 
 class App extends Component {
@@ -59,7 +60,7 @@ class App extends Component {
     const { id, username } = this.state.user;
     console.log("in app render", id, username);
     return (
-      <div className="container-fluid  text-center  px-0">
+      <div className="container-fluid  text-center text-white px-0">
         <BrowserRouter>
           <Header />
           <Switch>
@@ -127,4 +128,10 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  handleLogout: PropTypes.func,
+  history: PropTypes.string
+};
+
 export default App;

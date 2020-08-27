@@ -31,7 +31,6 @@ class TrackIt extends Component {
   }
 
   render() {
-
     const name = this.state.curriculums.filter(
       c => c.user_id === this.props.id
     );
@@ -48,17 +47,16 @@ class TrackIt extends Component {
     console.log(myCurriculums);
     return (
       <>
-        <div className="container-fluid text-center bg-light h-100">
+        <div className="container-fluid text-center text-dark bg-light h-100">
           <h1 className="Curriculums-container">
             Track Progress - {this.props.user}
           </h1>
           {myCurriculums.map(myCurriculum => (
-
             <div className="curriculum-list" key={myCurriculum.id}>
               <p>
                 {myCurriculum.name} {myCurriculum.entry_date.substring(1, 10)}{" "}
-                Hours : {myCurriculum.hours_done}{" "}
-                Modules : {myCurriculum.modules_done}
+                Hours : {myCurriculum.hours_done} Modules :{" "}
+                {myCurriculum.modules_done}
               </p>
             </div>
           ))}

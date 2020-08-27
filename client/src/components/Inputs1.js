@@ -2,40 +2,41 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-// import "../styles/main-body.css";
+import "../styles/style.css";
 
 class Inputs1 extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      curriculum: {
-        entry_date: "",
-        name: "",
-        hoursDone: "",
-        hoursTarget: "",
-        modules_done: "",
-        modules_target: "",
-        user_id: ""
-      }
+      hoursDone: "",
+      hoursTarget: "",
+      modulesDone: "",
+      modulesTarget: ""
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  // UNSAFE_componentWillMount() {
+  //   return this.props.loggedInStatus ? this.redirect() : null;
+  // }
 
   handleChange = event => {
     const { name, value } = event.target;
-
     this.setState({
-      [name]: parseInt(value, 10)
+      [name]: value
     });
   };
 
   handleSubmit = event => {
     event.preventDefault();
     const edate = new Date().toDateString();
-    console.log(edate);
-
     const { hoursDone, hoursTarget, modulesDone, modulesTarget } = this.state;
+
+    // const user = {
+    //   hoursDone,
+    //   hoursTarget,
+    //   modulesDone,
+    //   modulesTarget
+    // };
     const curriculum = {
       entry_date: `${edate}`,
       name: "Tech Skills Curriculum",
@@ -74,65 +75,127 @@ class Inputs1 extends Component {
   );
 
   render() {
+    // const { hoursDone, hoursTarget, modulesDone, modulesTarget } = this.state;
     return (
-      <div className="container-fluid  bg-light h-100">
-        <h1>Technial Curriculum</h1>
-        <br></br>
+      // <div className="container-fluid  bg-light h-100 text-left text-dark w-100">
+      <div className="container-fluid  body-bg  text-dark text-left font-weight-bold  mb-0 px-0">
+        <div className="w-100 text-center body-header text-dark px-0 py-1">
+          <h1>Technial Curriculum</h1>
+        </div>
+        {/* <br /> */}
+
         <form onSubmit={this.handleSubmit}>
-          <label>
+          <label className="justify-left w-100 px-5">
             {" "}
             Hours Done
             <input
+              className="w-100"
               type="text"
               name="hoursDone"
-              value={this.state.curriculum.hoursDone || 0}
+              value={this.state.hoursDone}
               onChange={this.handleChange}
             />
           </label>
-          <label>
+          <label className="justify-left w-100 px-5">
             {" "}
             Hours Target
             <input
-              type="number"
-              inputMode="numeric"
-              pattern="[0-9]+([\.,][0-9]+)?"
+              className="w-100"
+              type="text"
+              // inputMode="numeric"
+              // pattern="[0-9]+([\.,][0-9]+)?"
               name="hoursTarget"
-              value={this.state.curriculum.hoursTarget || 0}
+              value={this.state.hoursTarget}
               onChange={this.handleChange}
             />
           </label>
-          <label>
+          <label className="justify-left w-100 px-5">
             {" "}
             Modules Done
             <input
+              className="w-100"
               type="number"
-              name="modules_done"
-              value={this.state.curriculum.modules_done || 0}
+              name="modulesDone"
+              value={this.state.modulesDone}
               onChange={this.handleChange}
             />
           </label>
-          <label>
+          <label className="justify-left w-100 px-5">
             {" "}
             Modules Target
             <input
+              className="w-100"
               type="number"
-              name="modules_target"
-              value={this.state.curriculum.modules_target || 0}
+              name="modulesTarget"
+              value={this.state.modulesTarget}
               onChange={this.handleChange}
             />
           </label>
-          <input type="submit" value="Submit" />
-          <Link to="/Inputs2">Next</Link>
+          <label className="justify-left w-100 px-5">
+            {" "}
+         
+            <input
+              className="w-100 btn btn-primary"
+              type="submit"
+              // name="modulesTarget"
+              // value={this.state.modulesTarget}
+              // onChange={this.handleChange}
+            />
+          </label>
+          {/* <button type="submit" className="btn mt-3 ">
+            {" "}
+            Submit
+          </button> */}
+          {/* <div>
+            <Link to="/Inputs2">Next</Link>
+          </div> */}
         </form>
-        <br></br>
+        {/* <div>{this.state.errors ? this.handleErrors() : null}</div> */}
+        <div className="row">
+          {/* <div className="col-sm-12"> */}
+          <div
+            className="col-sm py-3   text-muted item-height"
+            style={{
+              backgroundColor: "white",
+              height: "5em",
+              marginLeft: "8em",
+              marginBottom: "2em"
+            }}
+          >
+            {/* <Link to="/Inputs1" style={{ color: "white" }}> */}
+            Prev
+            {/* </Link> */}
+            {/* </button> */}
+          </div>
+          <div
+            className="col-sm py-3   text-white item-height"
+            style={{
+              backgroundColor: "#97e494",
+              height: "5em",
+              marginRight: "8em",
+              marginBottom: "2em"
+            }}
+          >
+            <Link to="/Inputs2" style={{ color: "white" }}>
+              Next
+            </Link>
+            {/* </button> */}
+          </div>
+          {/* </div> */}
+        </div>
       </div>
     );
   }
 }
 
-Inputs1.propTypes = {
-  id: PropTypes.number,
-  username: PropTypes.string,
-  history: PropTypes.string
+// Login.propTypes = {
+//   handleLogin: PropTypes.func.isRequired,
+//   history: PropTypes.Object,
+//   object,
+//   loggedInStatus: PropTypes.bool
+// };
+
+Inputs1.defaultProps = {
+  history: PropTypes.Object
 };
 export default Inputs1;

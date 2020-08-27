@@ -95,7 +95,6 @@ class Progress extends React.Component {
   }
 
   render() {
-
     const radius = 60;
     const stroke = 4;
     const {
