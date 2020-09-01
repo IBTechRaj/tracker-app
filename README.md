@@ -1,24 +1,38 @@
-# README
+# Tracker App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This App helps a student at Microvese track his progress as he moves forward in the course.  It requires a new user to create his own account before using it.  After the user signs up with his email and password, he would be presented with three forms to enter the hours and modules he covered and also to set his targets. There is 'TrackIt' page where he can view the data he entered in the past datewise and there is another screen 'Progress' which shows his progress with a progress bar.
 
-Things you may want to cover:
+# Technologies
 
-* Ruby version
+- Ruby on Rails
+- React Js
+- Bootstrap 4
+- Webpack
+- Promises
 
-* System dependencies
+# Setup
 
-* Configuration
+To run the project:
 
-* Database creation
+Clone the repository: https://github.com/IBTechRaj/tracker-app
+Run 'npm install'. It will install all the dependencies required by the project
+Run 'npm start' to start the development server. It will automatically open the page in your default browser.
 
-* Database initialization
+# Live Demo
 
-* How to run the test suite
+You can see live demo [ here ](https://tracker-rra.herokuapp.com/#/)
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+# Contribute
 
-* ...
+Feel free to contribute if you want to make it better.
+
+# Author
+* [Rajasekhar K ](https://ibtechraj.github.io/RajPortfolio/)
+* [Github](https://github.com/IBTechRaj)
+* [Email](krs30018@gmail.com)
+* [LinkedIn](https://www.linkedin.com/in/rajkatakamsetty/)
+* [Twitter](https://twitter.com/IBTechRaj) 
+
+# Licence
+This project is [MIT](https://github.com/IBTechRaj/recipe-store/blob/master/LICENSE) licencsed.
